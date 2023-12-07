@@ -24,5 +24,9 @@
             android:id="@+id/nav_settings"
             android:icon="@drawable/baseline_history_24"
             android:title="@string/menu_settings" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/baseline_login_24"
+            android:title="@string/login" />
     </group>
 </menu>
