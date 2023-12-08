@@ -26,7 +26,8 @@ public class Confirmation extends AppCompatActivity {
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(Confirmation.this, MainActivity.class);
+                continueBtn.setBackgroundResource(R.drawable.button_pressed);
+                Intent intent = new Intent(Confirmation.this, MainActivity.class);
                     startActivity(intent);
                 }
         });

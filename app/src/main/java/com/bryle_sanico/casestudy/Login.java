@@ -95,7 +95,8 @@ public class Login extends AppCompatActivity {
         Registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(Login.this, Register.class);
+                Registerbtn.setBackgroundResource(R.drawable.button_pressed);
+                Intent intent = new Intent(Login.this, Register.class);
                     startActivity(intent);
             }
         });

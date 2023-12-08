@@ -37,7 +37,8 @@ public class Register extends AppCompatActivity {
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(Register.this, Confirmation.class);
+                continueBtn.setBackgroundResource(R.drawable.button_pressed);
+                Intent intent = new Intent(Register.this, Confirmation.class);
                     startActivity(intent);
             }
         });
