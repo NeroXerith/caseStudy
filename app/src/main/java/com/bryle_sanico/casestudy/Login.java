@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
     private Button Loginbtn, Registerbtn;
     private EditText inputEmail, inputPassword;
     private Intent directMain;
-    private String URL = "https://rentonfind.000webhostapp.com/functions/login.php", PHPFile = "";
+    private String URL = "https://rentonfind.000webhostapp.com/functions/", PHPFile = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
