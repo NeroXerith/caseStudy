@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +29,7 @@ public class Login extends AppCompatActivity {
     private Button Loginbtn, Registerbtn;
     private EditText inputEmail, inputPassword;
     private Intent directMain;
-    private String URL = "http://192.168.0.32/mobile/", PHPFile = "";
+    private String URL = "http://172.16.16.17/mobile/", PHPFile = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,34 @@ public class Login extends AppCompatActivity {
         inputEmail = findViewById(R.id.emailInput);
         inputPassword = findViewById(R.id.pwInput);
 
+        Drawable defaultBorder = getDrawable(R.drawable.border);
+        Drawable selectedBorder = getDrawable(R.drawable.selected_border);
+
+        inputEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    findViewById(R.id.emailInput).setBackground(selectedBorder);
+                } else {
+                    findViewById(R.id.emailInput).setBackground(defaultBorder);
+                }
+            }
+        });
+
+
+
+        inputPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    findViewById(R.id.pwInput).setBackground(selectedBorder);
+                } else {
+                    findViewById(R.id.pwInput).setBackground(defaultBorder);
+                }
+            }
+        });
+
+
         // Direct to the main
         directMain = new Intent(Login.this, MainActivity.class);
 
@@ -51,6 +80,7 @@ public class Login extends AppCompatActivity {
         Loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Loginbtn.setBackgroundResource(R.drawable.button_pressed);
                 progressdialog.setMessage("Sending Information...");
                 progressdialog.show();
                 String str_username = inputEmail.getText().toString();
@@ -65,12 +95,9 @@ public class Login extends AppCompatActivity {
         Registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (inputEmail.getText().toString().isEmpty()) {
-                    Toast.makeText(Login.this, "Empty Field", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(Login.this, Register.class);
+                Registerbtn.setBackgroundResource(R.drawable.button_pressed);
+                Intent intent = new Intent(Login.this, Register.class);
                     startActivity(intent);
-                }
             }
         });
     }
