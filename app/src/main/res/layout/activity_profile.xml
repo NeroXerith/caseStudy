@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".Profile">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#093254"
+        android:padding="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="#093254"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/burger"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/burger"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="Profile"
+                android:textColor="@color/white" />
+        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardCornerRadius="60dp">
+
+        <ImageView
+            android:id="@+id/profilepic"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/docs_placeholder"
+            />
+
+</androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/profilename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="profilename"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/emailText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email here"
+                android:textColor="@color/black"/>
+            <Button
+                android:id="@+id/changeEmail"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginVertical="10dp"
+                android:text="Change Email"
+                android:background="@drawable/custombutton"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile Number"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/mobileText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mobile number here"
+                android:textColor="@color/black"/>
+            <Button
+                android:id="@+id/changeNumber"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="Change  Number"
+                android:background="@drawable/custombutton"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/deleteAcc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DELETE ACCOUNT"
+            android:textColor="@color/main"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:layout_gravity="bottom || center"></TextView>
+    </LinearLayout>
+
+
+</ScrollView>
