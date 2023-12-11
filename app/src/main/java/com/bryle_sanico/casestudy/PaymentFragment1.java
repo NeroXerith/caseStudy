@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +24,7 @@ public class PaymentFragment1 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    Button payBtn;
 
     public PaymentFragment1() {
         // Required empty public constructor
@@ -59,6 +61,30 @@ public class PaymentFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_payment1, container, false);
+        View view = inflater.inflate(R.layout.fragment_payment1, container, false);
+
+        // Find the Button in the inflated view
+        payBtn = view.findViewById(R.id.paymentButton);
+
+        payBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Load PaymentFragment2 when the button is clicked
+                loadPaymentFragment2();
+            }
+        });
+
+        return view;
+    }
+
+    private void loadPaymentFragment2() {
+        // Create an instance of PaymentFragment2
+        PaymentFragment2 fragment2 = new PaymentFragment2();
+
+        // Replace the current fragment with PaymentFragment2
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.paymentfragment, fragment2)
+                .addToBackStack(null)  // Optionally add to back stack
+                .commit();
     }
 }

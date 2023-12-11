@@ -32,48 +32,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:padding="15dp">
-        <TextView
-            android:id="@+id/ownerName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="ownerName" />
-        <TextView
-            android:id="@+id/locationName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text=" - locName" />
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listViewTH"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp"
+            android:padding="16dp" />
     </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="15dp">
-    <TextView
-        android:id="@+id/paymentMethod"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/black"
-        android:text="method"/>
-
-
-        <TextView
-            android:id="@+id/paymentamount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="amount" />
-
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="date" />
-</LinearLayout>
 
 </LinearLayout>
 </ScrollView>
