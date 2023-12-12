@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="10dp"
-                    android:text="Location Details"
+                    android:text="Dashboard"
                     android:textColor="@color/white" />
             </LinearLayout>
             <androidx.cardview.widget.CardView
@@ -83,106 +83,44 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Description"
+                android:text="New Tenants "
                 android:textSize="20dp"
                 android:textColor="@color/black"/>
             <TextView
-                android:id="@+id/descText"
+                android:id="@+id/tenentNoLW"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="desc here"
-                android:layout_marginBottom="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Type"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/typeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="type here(condo,apartment,etc.)"
+                android:text="number"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fully Furnished"
+                android:text="Total Rooms"
                 android:textSize="20dp"
                 android:textColor="@color/black"/>
             <TextView
-                android:id="@+id/ffText"
+                android:id="@+id/totalRooms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="yes/no"
+                android:text="number"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/black"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bedrooms"
+                android:text="Rooms Occupied"
                 android:textSize="20dp"
                 android:textColor="@color/black"/>
             <TextView
-                android:id="@+id/bedroomText"
+                android:id="@+id/occupied"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="no. of bedrooms"
+                android:text="number"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/black"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bathrooms"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/bathroomText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="no. of bathroom"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Floor Area"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/floorareaText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="area(m^2)"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="20dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gallery"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <ImageView
-                android:id="@+id/galleryimg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/docs_placeholder"
-                />
     </LinearLayout>
     </LinearLayout>
-
-
 
 </ScrollView>
