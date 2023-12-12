@@ -30,7 +30,6 @@
                 android:layout_gravity="center"
                 android:text="Settings"
                 android:textColor="@color/white" />
-
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

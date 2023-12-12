@@ -12,10 +12,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/navClose"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:background="@drawable/baseline_close_24"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,16 +119,6 @@
             android:textColor="@color/white"
             />
         <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Logout"
-            android:layout_gravity="center"
-            android:background="@drawable/custombutton"
-            android:textColor="@color/white"
-            />
-        <Button
             android:id="@+id/dashboardButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,6 +129,17 @@
             android:textColor="@color/white"
             android:visibility="gone"
             />
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Logout"
+            android:layout_gravity="center"
+            android:background="@drawable/custombutton"
+            android:textColor="@color/white"
+            />
+
     </LinearLayout>
 
     </LinearLayout>
