@@ -21,80 +21,92 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
-            android:text="Email"
+            android:layout_marginTop="30dp"
+            android:text="Full Name"
             android:textSize="20dp"
             android:textColor="@color/black"/>
-        <EditText
-            android:id="@+id/emailInput"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:paddingHorizontal="10dp"
-            android:background="@drawable/border"/>
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
-            android:textSize="20dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/black"/>
+            android:orientation="horizontal">
         <EditText
-            android:id="@+id/pwInput"
+            android:id="@+id/fnameInput"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
+            android:hint="FirstName"
             android:paddingHorizontal="10dp"
-            android:background="@drawable/border"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Confirm Password"
-            android:textSize="20dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/black"/>
+            android:background="@drawable/border"
+            android:layout_weight="3"/>
         <EditText
-            android:id="@+id/confirmpwInput"
+            android:id="@+id/mnameInput"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
+            android:hint="MiddleName"
             android:paddingHorizontal="10dp"
-            android:background="@drawable/border"/>
-        <RadioGroup
+            android:background="@drawable/border"
+            android:layout_weight="3"/>
+        <EditText
+            android:id="@+id/lnameInput"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:hint="LastName"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/border"
+            android:layout_weight="3"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:weightSum="2"
             android:orientation="horizontal">
-            <RadioButton
-                android:id="@+id/rbRenter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:textColor="@color/black"
-                android:text="Renter"/>
 
-            <RadioButton
-                android:id="@+id/rbOwner"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:text="Age"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/inputAge"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:textSize="18sp"
+                android:inputType="number"
+                android:hint="18"
+                android:paddingHorizontal="10dp"
+
                 android:textColor="@color/black"
-                android:text="Owner" />
-        </RadioGroup>
-        <ImageView
-            android:id="@+id/docImBtn"
-            android:layout_width="250dp"
-            android:layout_height="150dp"
-            android:background="@drawable/docs_placeholder"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:clickable="true"
-            android:visibility="visible"/>
+                android:background="@drawable/border"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+
+            <EditText
+                android:id="@+id/inputContactNo"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textSize="18sp"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:hint="09372709442"
+                android:paddingHorizontal="10dp"
+
+                android:background="@drawable/border"
+                />
+        </LinearLayout>
+
 
         <Button
             android:id="@+id/continuebtn"
