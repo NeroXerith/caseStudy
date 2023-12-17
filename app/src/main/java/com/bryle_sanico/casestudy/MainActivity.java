@@ -3,6 +3,7 @@ package com.bryle_sanico.casestudy;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ListView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -16,6 +17,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bryle_sanico.casestudy.databinding.ActivityMainBinding;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -27,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        List<String> itemList = Arrays.asList("100", "150", "200"); // Replace with your data
+
+        CustomAdapterMainHousings adapter = new CustomAdapterMainHousings(this, itemList);
+
+        ListView listView = findViewById(R.id.listViewMainHousing);
+        listView.setAdapter(adapter);
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {

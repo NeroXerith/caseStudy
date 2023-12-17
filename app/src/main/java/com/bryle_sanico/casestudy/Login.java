@@ -65,15 +65,17 @@ public class Login extends AppCompatActivity {
         Registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (inputEmail.getText().toString().isEmpty()) {
-                    Toast.makeText(Login.this, "Empty Field", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(Login.this, Register.class);
+
+                Intent intent = new Intent(Login.this, Register.class);
+                if (intent != null) {
                     startActivity(intent);
+                } else {
+                    // Log an error or show a Toast indicating the issue
+                    Toast.makeText(Login.this, "Error starting Register activity", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
+}
 
     public boolean LoginAccount(String PHPFile, String UserEmail, String PassWord) {
         stringRequest = new StringRequest(Request.Method.POST, (URL + PHPFile), new Response.Listener<String>() {
