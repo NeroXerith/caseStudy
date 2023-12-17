@@ -160,26 +160,61 @@
                 android:text="area(m^2)"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/ownerContactText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="contact number"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"/>
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_gravity="center"
             android:paddingLeft="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gallery"
-                android:textSize="20dp"
+                android:textSize="30dp"
+                android:layout_gravity="center"
                 android:textColor="@color/black"/>
             <ImageView
-                android:id="@+id/galleryimg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/biggalleryimg"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:src="@drawable/docs_placeholder"
                 />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/galleryimg1"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:src="@drawable/docs_placeholder"
+                />
+            <ImageView
+                android:id="@+id/galleryimg2"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:src="@drawable/docs_placeholder"
+                />
+        </LinearLayout>
     </LinearLayout>
     </LinearLayout>
 
