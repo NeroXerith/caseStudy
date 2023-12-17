@@ -69,6 +69,8 @@ public class locationDetail extends AppCompatActivity {
                     String noBedrooms = jsonObject.getString("noBedrooms");
                     String noBathrooms = jsonObject.getString("noBathrooms");
                     String floor_Area = jsonObject.getString("floor_area");
+                    String contactNo = jsonObject.getString("contact");
+                    String email = jsonObject.getString("user_email");
 
                     // Initialize imageProfile
                     ImageView profilePicImageView = findViewById(R.id.profilepic);
@@ -82,6 +84,7 @@ public class locationDetail extends AppCompatActivity {
                     TextView bedrooms = findViewById(R.id.bedroomText);
                     TextView bathrooms = findViewById(R.id.bathroomText);
                     TextView floorArea = findViewById(R.id.floorareaText);
+                    TextView txtcontact = findViewById(R.id.ownerContactText);
                     String imageUrl = "https://rentonfind.site/public/unitThumbnails/" + unitThumbnail;
                     Picasso.get().load(imageUrl).into(profilePicImageView);
 
@@ -94,6 +97,7 @@ public class locationDetail extends AppCompatActivity {
                     bedrooms.setText(noBedrooms);
                     bathrooms.setText(noBathrooms);
                     floorArea.setText(floor_Area);
+                    txtcontact.setText(contactNo);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
