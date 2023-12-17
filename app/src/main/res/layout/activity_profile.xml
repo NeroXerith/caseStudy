@@ -124,7 +124,7 @@
             android:textColor="@color/main"
             android:textStyle="bold"
             android:clickable="true"
-            android:layout_gravity="center"/>
+            android:layout_gravity="bottom||center"/>
     </LinearLayout>
 
 

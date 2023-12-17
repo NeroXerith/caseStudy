@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
                 String str_username = inputEmail.getText().toString();
                 String str_password = inputPassword.getText().toString();
                 // SUPPLY THE USERNAME AND PASSWORD DATA FROM THE TEXT FIELD
-                if (!LoginAccount("login.php", str_username, str_password)) {
+                if (!LoginAccount("MobileLogin", str_username, str_password)) {
                     Toast.makeText(Login.this, "Login Failed! Please try again", Toast.LENGTH_LONG).show();
                 }
             }
@@ -65,6 +65,7 @@ public class Login extends AppCompatActivity {
         Registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(Login.this, Register.class);
                 if (intent != null) {
                     startActivity(intent);
