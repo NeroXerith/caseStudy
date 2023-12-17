@@ -29,6 +29,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bryle_sanico.casestudy.databinding.ActivityMainBinding;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -105,11 +106,11 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                         String unitID = jsonObject.getString("id");
+                        String unitThumbnail = jsonObject.getString("thumbnail");
                         String locName = jsonObject.getString("title");
                         String locAddress = jsonObject.getString("landmark");
-                        String paymentAmount = jsonObject.getString("monthly_rent");
-
-                        UnitModel unitModel = new UnitModel(unitID, locName, locAddress, paymentAmount);
+                        String paymentAmount = "₱"+jsonObject.getString("monthly_rent");
+                        UnitModel unitModel = new UnitModel(unitID, unitThumbnail, locName, locAddress, paymentAmount);
                         unitList.add(unitModel);
                     }
 

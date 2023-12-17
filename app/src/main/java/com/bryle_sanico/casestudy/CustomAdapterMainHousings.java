@@ -9,9 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
 public class CustomAdapterMainHousings extends ArrayAdapter<UnitModel> {
     private Context context;
     private List<UnitModel> unitList;
@@ -32,6 +33,7 @@ public class CustomAdapterMainHousings extends ArrayAdapter<UnitModel> {
             convertView = inflater.inflate(R.layout.listview_main_housings, null);
 
             viewHolder = new ViewHolder();
+            viewHolder.unitThumbnail = convertView.findViewById(R.id.locImage);
             viewHolder.locName = convertView.findViewById(R.id.locName);
             viewHolder.locAddress = convertView.findViewById(R.id.locAddress);
             viewHolder.paymentAmount = convertView.findViewById(R.id.paymentamount);
@@ -44,6 +46,10 @@ public class CustomAdapterMainHousings extends ArrayAdapter<UnitModel> {
         UnitModel unitModel = getItem(position);
 
         if (unitModel != null) {
+            // Update this line to load the image using Picasso
+            String imageUrl = "https://rentonfind.site/public/unitThumbnails/" + unitModel.getUnitThumbnail();
+            Picasso.get().load(imageUrl).into(viewHolder.unitThumbnail);
+
             viewHolder.locName.setText(unitModel.getLocName());
             viewHolder.locAddress.setText(unitModel.getLocAddress());
             viewHolder.paymentAmount.setText(unitModel.getPaymentAmount());
@@ -66,6 +72,7 @@ public class CustomAdapterMainHousings extends ArrayAdapter<UnitModel> {
     }
 
     static class ViewHolder {
+        ImageView unitThumbnail;
         TextView locName;
         TextView locAddress;
         TextView paymentAmount;

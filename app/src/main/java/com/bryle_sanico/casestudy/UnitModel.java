@@ -2,11 +2,14 @@ package com.bryle_sanico.casestudy;
 public class UnitModel {
     private String unitID;
     private String locName;
+
+    private String unitThumbnail;
     private String locAddress;
     private String paymentAmount;
 
-    public UnitModel(String unitID, String locName, String locAddress, String paymentAmount) {
+    public UnitModel(String unitID, String unitThumbnail, String locName, String locAddress, String paymentAmount) {
         this.unitID = unitID;
+        this.unitThumbnail = unitThumbnail;
         this.locName = locName;
         this.locAddress = locAddress;
         this.paymentAmount = paymentAmount;
@@ -18,6 +21,14 @@ public class UnitModel {
 
     public void setUnitID(String unitID) {
         this.unitID = unitID;
+    }
+
+    public String getUnitThumbnail() {
+        return unitThumbnail;
+    }
+
+    public void setUnitThumbnail(String unitThumbnail) {
+        this.unitID = unitThumbnail;
     }
     public String getLocName() {
         return locName;
