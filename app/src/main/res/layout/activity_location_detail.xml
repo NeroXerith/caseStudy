@@ -69,6 +69,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="25dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
             <TextView
                 android:id="@+id/editDetails"
                 android:layout_width="wrap_content"
@@ -79,101 +83,314 @@
                 android:textColor="@color/main"
                 android:clickable="true"
                 android:visibility="gone"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Description"
+                android:layout_weight="1"
                 android:textSize="20dp"
                 android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/main"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_gravity="center"
+                    android:text="amount" />
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/descText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textSize="15dp"
                 android:text="desc here"
-                android:layout_marginBottom="20dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
             <TextView
+                android:id="@+id/landmark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Type"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/typeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="type here(condo,apartment,etc.)"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fully Furnished"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/ffText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="yes/no"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"/>
+                android:text="landmark"
+                android:textColor="@color/black" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <GridLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bedrooms"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/bedroomText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="no. of bedrooms"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"/>
+                android:columnCount="2"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/type"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:text="Type"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+                    <TextView
+                        android:id="@+id/typeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="type here"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/furnish"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bathrooms"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/bathroomText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="no. of bathroom"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Floor Area"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/floorareaText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="area(m^2)"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contact"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/ownerContactText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="contact number"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/black"/>
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:text="Fully Furnished"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/ffText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="yes/no"
+                    android:textColor="@color/black" />
+                </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bedroom"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:text="Bedrooms"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/bedroomText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="10dp"
+                    android:text="no. of bedrooms"
+                    android:textColor="@color/black" />
+                </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bathroom"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="center"
+                    android:text="Bathrooms"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/bathroomText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="10dp"
+                    android:text="no. of bathroom"
+                    android:textColor="@color/black" />
+                </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/area"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:text="Floor Area"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/floorareaText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="10dp"
+                    android:text="area(m^2)"
+                    android:textColor="@color/black" />
+                </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/unit"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="center"
+                    android:text="Unit"
+                    android:textColor="@color/black"
+                    android:textSize="19dp" />
+
+
+                <TextView
+                    android:id="@+id/unitText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="10dp"
+                    android:text="unit"
+                    android:textColor="@color/black" />
+                </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="Contact"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/ownerContactText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="10dp"
+                    android:text="contact number"
+                    android:textColor="@color/black" />
+                </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="Email"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/locEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="10dp"
+                    android:text="locEmail"
+                    android:textColor="@color/black" />
+                </LinearLayout>
+                </LinearLayout>
+            </GridLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
