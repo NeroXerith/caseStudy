@@ -3,13 +3,12 @@ package com.bryle_sanico.casestudy;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
-
+import android.content.SharedPreferences;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -85,12 +84,33 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            int id = menuItem.getItemId();
+
+            if (id == R.id.nav_logout) { // replace 'nav_logout' with the actual id of your logout menu item
+                // Clear user data
+                logout();
+
+                Intent intent2 = new Intent(MainActivity.this, Login.class);
+                startActivity(intent2);
+                finish();
+            }
+
+            // Close the navigation drawer
+            drawer.closeDrawers();
+
+            return true;
+        });
+
         progressdialog = new ProgressDialog(this);
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         if (!fetchAvailableUnits("MobileFetchUnit")) {
             Toast.makeText(MainActivity.this, "Failed! Please try again", Toast.LENGTH_LONG).show();
         }
+
+
+
     }
 
     public boolean fetchAvailableUnits(String PHPFile) {
@@ -168,5 +188,27 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+
+
+
+    // Function to perform logout
+    private void logout() {
+        // Clear the saved login status
+        saveLoginStatus(false);
+
+        // Navigate back to the login screen
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        startActivity(intent);
+        finish();
+    }
+
+    // Function to save login status using SharedPreferences
+    private void saveLoginStatus(boolean isLoggedIn) {
+        SharedPreferences preferences = getSharedPreferences("loginPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("isLoggedIn", isLoggedIn);
+        editor.apply();
     }
 }

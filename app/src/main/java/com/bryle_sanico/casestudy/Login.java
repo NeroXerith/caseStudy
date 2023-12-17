@@ -1,14 +1,15 @@
 package com.bryle_sanico.casestudy;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,13 +23,13 @@ import java.util.Map;
 
 public class Login extends AppCompatActivity {
 
-    private ProgressDialog progressdialog;
-    private StringRequest stringRequest;
-    private RequestQueue requestQueue;
     private Button Loginbtn, Registerbtn;
     private EditText inputEmail, inputPassword;
     private Intent directMain;
-    private String URL = "https://rentonfind.site/", PHPFile = "";
+    private String URL = "https://rentonfind.site/";
+    private RequestQueue requestQueue;
+    private ProgressDialog progressdialog;
+    private StringRequest stringRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,25 +48,27 @@ public class Login extends AppCompatActivity {
         directMain = new Intent(Login.this, MainActivity.class);
 
         requestQueue = Volley.newRequestQueue(this); // Initialize request queue
-
-        Loginbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                progressdialog.setMessage("Sending Information...");
-                progressdialog.show();
-                String str_username = inputEmail.getText().toString();
-                String str_password = inputPassword.getText().toString();
-                // SUPPLY THE USERNAME AND PASSWORD DATA FROM THE TEXT FIELD
-                if (!LoginAccount("MobileLogin", str_username, str_password)) {
-                    Toast.makeText(Login.this, "Login Failed! Please try again", Toast.LENGTH_LONG).show();
+        // Check if the user is already logged in
+        if (isLoggedIn()) {
+            startActivity(directMain);
+            finish();
+        } else {
+            Loginbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    progressdialog.setMessage("Sending Information...");
+                    progressdialog.show();
+                    String str_username = inputEmail.getText().toString();
+                    String str_password = inputPassword.getText().toString();
+                    // Check if login is successful
+                    LoginAccount("MobileLogin", str_username, str_password);
                 }
-            }
-        });
+            });
+        }
 
         Registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(Login.this, Register.class);
                 if (intent != null) {
                     startActivity(intent);
@@ -75,13 +78,31 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-}
+    }
 
-    public boolean LoginAccount(String PHPFile, String UserEmail, String PassWord) {
+    // Function to save login status using SharedPreferences
+    private void saveLoginStatus(boolean isLoggedIn) {
+        SharedPreferences preferences = getSharedPreferences("loginPref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("isLoggedIn", isLoggedIn);
+        editor.apply();
+    }
+
+    // Function to check if the user is already logged in
+    private boolean isLoggedIn() {
+        SharedPreferences preferences = getSharedPreferences("loginPref", MODE_PRIVATE);
+        return preferences.getBoolean("isLoggedIn", false);
+    }
+
+    public void LoginAccount(String PHPFile, String UserEmail, String PassWord) {
         stringRequest = new StringRequest(Request.Method.POST, (URL + PHPFile), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.equals("Success!")) {  // user is logged in
+                    // Save login status
+                    saveLoginStatus(true);
+
+                    // Open MainActivity
                     startActivity(directMain);
                     finish();
                 } else {
@@ -122,6 +143,5 @@ public class Login extends AppCompatActivity {
             }
         };
         timer.start();
-        return true;
     }
 }
