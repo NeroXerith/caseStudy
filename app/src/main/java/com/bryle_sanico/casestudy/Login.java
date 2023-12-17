@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
     private Button Loginbtn, Registerbtn;
     private EditText inputEmail, inputPassword;
     private Intent directMain;
-    private String URL = "https://rentonfind.000webhostapp.com/functions/", PHPFile = "";
+    private String URL = "https://rentonfind.site/", PHPFile = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
                 String str_username = inputEmail.getText().toString();
                 String str_password = inputPassword.getText().toString();
                 // SUPPLY THE USERNAME AND PASSWORD DATA FROM THE TEXT FIELD
-                if (!LoginAccount("login.php", str_username, str_password)) {
+                if (!LoginAccount("MobileLogin", str_username, str_password)) {
                     Toast.makeText(Login.this, "Login Failed! Please try again", Toast.LENGTH_LONG).show();
                 }
             }
