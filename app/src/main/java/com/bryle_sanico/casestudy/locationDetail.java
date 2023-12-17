@@ -1,12 +1,11 @@
 package com.bryle_sanico.casestudy;
 
-import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -60,19 +60,40 @@ public class locationDetail extends AppCompatActivity {
 
                     // Extracting the values from JSON
                     String locName = jsonObject.getString("title");
-                    String unitTyppe = jsonObject.getString("type");
+                    String unitThumbnail = jsonObject.getString("thumbnail");
+                    String unitType = jsonObject.getString("type");
                     String locAddress = jsonObject.getString("landmark");
                     String paymentAmount = jsonObject.getString("monthly_rent");
                     String unitDescription = jsonObject.getString("description");
+                    String isFurnished = jsonObject.getString("furnished");
+                    String noBedrooms = jsonObject.getString("noBedrooms");
+                    String noBathrooms = jsonObject.getString("noBathrooms");
+                    String floor_Area = jsonObject.getString("floor_area");
 
-                    // Initialize Textviews
-                    // Wala ka nito TextView locLandmark = findViewById();
+                    // Initialize imageProfile
+                    ImageView profilePicImageView = findViewById(R.id.profilepic);
+
+                   // Initialize Textviews
+                                // Wala ka nito TextView locLandmark = findViewById();
                     TextView title = findViewById(R.id.profilename);
                     TextView description = findViewById(R.id.descText);
+                    TextView type = findViewById(R.id.typeText);
+                    TextView furnished = findViewById(R.id.ffText);
+                    TextView bedrooms = findViewById(R.id.bedroomText);
+                    TextView bathrooms = findViewById(R.id.bathroomText);
+                    TextView floorArea = findViewById(R.id.floorareaText);
+                    String imageUrl = "https://rentonfind.site/public/unitThumbnails/" + unitThumbnail;
+                    Picasso.get().load(imageUrl).into(profilePicImageView);
+
 
                     // Set the values of the Textview
                     title.setText(locName);
                     description.setText(unitDescription);
+                    type.setText(unitType);
+                    furnished.setText(isFurnished);
+                    bedrooms.setText(noBedrooms);
+                    bathrooms.setText(noBathrooms);
+                    floorArea.setText(floor_Area);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
