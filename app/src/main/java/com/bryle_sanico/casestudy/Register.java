@@ -42,12 +42,21 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 continueBtn.setBackgroundResource(R.drawable.button_pressed);
 
-                // Check if passwords match
-                if (isPasswordMatch()) {
-                    Intent intent = new Intent(Register.this, RegistrationStep2.class);
-                    startActivity(intent);
+                // Check if all EditText fields are not empty
+                if (areEditTextsNotEmpty()) {
+                    // Check if passwords match
+                    if (isPasswordMatch()) {
+                        Intent intent = new Intent(Register.this, RegistrationStep2.class);
+                        intent.putExtra("email", inputEmail.getText().toString().trim());
+                        intent.putExtra("password", pwConfirmation.getText().toString().trim());
+
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(Register.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(Register.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -86,5 +95,10 @@ public class Register extends AppCompatActivity {
         String password = inputPassword.getText().toString().trim();
         String confirmPassword = pwConfirmation.getText().toString().trim();
         return password.equals(confirmPassword);
+    }
+    private boolean areEditTextsNotEmpty() {
+        return !inputEmail.getText().toString().trim().isEmpty() &&
+                !inputPassword.getText().toString().trim().isEmpty() &&
+                !pwConfirmation.getText().toString().trim().isEmpty();
     }
 }

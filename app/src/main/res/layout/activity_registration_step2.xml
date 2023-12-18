@@ -81,7 +81,6 @@
                 android:inputType="number"
                 android:hint="18"
                 android:paddingHorizontal="10dp"
-
                 android:textColor="@color/black"
                 android:background="@drawable/border"
                 />
