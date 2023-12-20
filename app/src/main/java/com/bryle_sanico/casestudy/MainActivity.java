@@ -68,8 +68,7 @@ public class MainActivity extends AppCompatActivity {
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Opening your messages..", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Toast.makeText(MainActivity.this, "Opening your messages..", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -84,15 +83,32 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        // Check if the user is logged in
+        if (isLoggedIn()) {
+            // User is logged in
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+        } else {
+            // User is not logged in
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(true);
+        }
+
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             int id = menuItem.getItemId();
 
-            if (id == R.id.nav_logout) { // replace 'nav_logout' with the actual id of your logout menu item
-                // Clear user data
+            if (id == R.id.nav_logout) {
+                // Clear user data and perform logout
                 logout();
+                Intent logoutUser = new Intent(MainActivity.this, Login.class);
+                startActivity(logoutUser);
+                finish();
+            }
 
-                Intent intent2 = new Intent(MainActivity.this, Login.class);
-                startActivity(intent2);
+            if (id == R.id.nav_login) {
+                // Clear user data and perform logout
+                Intent loginUser = new Intent(MainActivity.this, Login.class);
+                startActivity(loginUser);
                 finish();
             }
 
@@ -191,8 +207,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     // Function to perform logout
     private void logout() {
         // Clear the saved login status
@@ -202,6 +216,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
         finish();
+    }
+
+    // Function to check if the user is already logged in
+    private boolean isLoggedIn() {
+        SharedPreferences preferences = getSharedPreferences("loginPref", MODE_PRIVATE);
+        return preferences.getBoolean("isLoggedIn", false);
     }
 
     // Function to save login status using SharedPreferences

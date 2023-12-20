@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,9 +51,12 @@ public class Login extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this); // Initialize request queue
         // Check if the user is already logged in
         if (isLoggedIn()) {
+            saveLoginStatus(true);
             startActivity(directMain);
             finish();
         } else {
+            // Hide the "Login" menu item in MainActivity
+            hideLoginMenuItem();
             Loginbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -143,5 +147,11 @@ public class Login extends AppCompatActivity {
             }
         };
         timer.start();
+    }
+    private void hideLoginMenuItem() {
+        NavigationView navigationView = findViewById(R.id.mobile_navigation);
+        if (navigationView != null) {
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+        }
     }
 }
